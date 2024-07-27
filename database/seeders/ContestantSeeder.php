@@ -27,8 +27,7 @@ class ContestantSeeder extends Seeder
             for ($j = 1; $j <= rand(1, 20); $j++) {
                 Vote::create([
                     'contestant_id' => $contestant->id,
-                    'voter_email' => 'voter' . $i . '_' . $j . '@example.com',
-                    'voted_at' => now(),
+                    'email' => 'voter' . $i . '_' . $j . '@example.com',
                 ]);
             }
         }
