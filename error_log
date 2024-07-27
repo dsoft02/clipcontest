@@ -1,0 +1,36 @@
+[27-Jul-2024 14:58:24 UTC] PHP Fatal error:  Declaration of Monolog\Logger::emergency(Stringable|string $message, array $context = []): void must be compatible with PsrExt\Log\LoggerInterface::emergency($message, array $context = []) in /home/chatchej/clipcontest.chatkoin.com/vendor/monolog/monolog/src/Monolog/Logger.php on line 682
+[27-Jul-2024 14:58:24 UTC] PHP Fatal error:  Uncaught Error: Class "Monolog\Logger" not found in /home/chatchej/clipcontest.chatkoin.com/vendor/monolog/monolog/src/Monolog/Handler/AbstractHandler.php:60
+Stack trace:
+#0 /home/chatchej/clipcontest.chatkoin.com/vendor/monolog/monolog/src/Monolog/Handler/AbstractHandler.php(38): Monolog\Handler\AbstractHandler->setLevel()
+#1 /home/chatchej/clipcontest.chatkoin.com/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php(49): Monolog\Handler\AbstractHandler->__construct()
+#2 /home/chatchej/clipcontest.chatkoin.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(199): Monolog\Handler\StreamHandler->__construct()
+#3 /home/chatchej/clipcontest.chatkoin.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(153): Illuminate\Log\LogManager->createEmergencyLogger()
+#4 /home/chatchej/clipcontest.chatkoin.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(125): Illuminate\Log\LogManager->get()
+#5 /home/chatchej/clipcontest.chatkoin.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(693): Illuminate\Log\LogManager->driver()
+#6 /home/chatchej/clipcontest.chatkoin.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(377): Illuminate\Log\LogManager->error()
+#7 /home/chatchej/clipcontest.chatkoin.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(338): Illuminate\Foundation\Exceptions\Handler->reportThrowable()
+#8 /home/chatchej/clipcontest.chatkoin.com/vendor/nunomaduro/collision/src/Adapters/Laravel/ExceptionHandler.php(46): Illuminate\Foundation\Exceptions\Handler->report()
+#9 /home/chatchej/clipcontest.chatkoin.com/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(184): NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler->report()
+#10 /home/chatchej/clipcontest.chatkoin.com/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(232): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#11 /home/chatchej/clipcontest.chatkoin.com/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(256): Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#12 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#13 {main}
+  thrown in /home/chatchej/clipcontest.chatkoin.com/vendor/monolog/monolog/src/Monolog/Handler/AbstractHandler.php on line 60
+[27-Jul-2024 15:30:55 UTC] PHP Fatal error:  Declaration of Monolog\Logger::emergency(Stringable|string $message, array $context = []): void must be compatible with PsrExt\Log\LoggerInterface::emergency($message, array $context = []) in /home/chatchej/clipcontest.chatkoin.com/vendor/monolog/monolog/src/Monolog/Logger.php on line 682
+[27-Jul-2024 15:30:55 UTC] PHP Fatal error:  Uncaught Error: Class "Monolog\Logger" not found in /home/chatchej/clipcontest.chatkoin.com/vendor/monolog/monolog/src/Monolog/Handler/AbstractHandler.php:60
+Stack trace:
+#0 /home/chatchej/clipcontest.chatkoin.com/vendor/monolog/monolog/src/Monolog/Handler/AbstractHandler.php(38): Monolog\Handler\AbstractHandler->setLevel()
+#1 /home/chatchej/clipcontest.chatkoin.com/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php(49): Monolog\Handler\AbstractHandler->__construct()
+#2 /home/chatchej/clipcontest.chatkoin.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(199): Monolog\Handler\StreamHandler->__construct()
+#3 /home/chatchej/clipcontest.chatkoin.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(153): Illuminate\Log\LogManager->createEmergencyLogger()
+#4 /home/chatchej/clipcontest.chatkoin.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(125): Illuminate\Log\LogManager->get()
+#5 /home/chatchej/clipcontest.chatkoin.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(693): Illuminate\Log\LogManager->driver()
+#6 /home/chatchej/clipcontest.chatkoin.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(377): Illuminate\Log\LogManager->error()
+#7 /home/chatchej/clipcontest.chatkoin.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(338): Illuminate\Foundation\Exceptions\Handler->reportThrowable()
+#8 /home/chatchej/clipcontest.chatkoin.com/vendor/nunomaduro/collision/src/Adapters/Laravel/ExceptionHandler.php(46): Illuminate\Foundation\Exceptions\Handler->report()
+#9 /home/chatchej/clipcontest.chatkoin.com/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(184): NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler->report()
+#10 /home/chatchej/clipcontest.chatkoin.com/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(232): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#11 /home/chatchej/clipcontest.chatkoin.com/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(256): Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#12 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#13 {main}
+  thrown in /home/chatchej/clipcontest.chatkoin.com/vendor/monolog/monolog/src/Monolog/Handler/AbstractHandler.php on line 60
