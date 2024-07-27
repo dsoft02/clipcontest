@@ -13,6 +13,18 @@ class ContestantSeeder extends Seeder
      */
     public function run(): void
     {
+        // Track used IP addresses to ensure uniqueness
+        $usedIps = [];
+
+        // Function to generate a unique IP address
+        function generateUniqueIp(&$usedIps) {
+            do {
+                $ip = '192.168.1.' . rand(1, 255);
+            } while (in_array($ip, $usedIps));
+            $usedIps[] = $ip;
+            return $ip;
+        }
+
         // Manually create 15 contestants with random data
         for ($i = 1; $i <= 15; $i++) {
             $contestant = Contestant::create([
@@ -27,7 +39,7 @@ class ContestantSeeder extends Seeder
                 Vote::create([
                     'contestant_id' => $contestant->id,
                     'email' => 'voter' . $i . '_' . $j . '@example.com',
-                    'ip_address' => '192.168.1.' . rand(1, 255),
+                    'ip_address' => generateUniqueIp($usedIps),
                     'created_at' => now(),
                 ]);
             }
