@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Contestant;
 use App\Models\Vote;
+use Illuminate\Support\Str;
 
 class ContestantSeeder extends Seeder
 {
@@ -13,10 +14,23 @@ class ContestantSeeder extends Seeder
      */
     public function run(): void
     {
-        // Create 15 contestants
-        Contestant::factory(15)->create()->each(function ($contestant) {
-            // Allocate a random number of votes (between 1 and 20) to each contestant
-            Vote::factory(rand(1, 20))->create(['contestant_id' => $contestant->id]);
-        });
+        // Manually create 15 contestants with random data
+        for ($i = 1; $i <= 15; $i++) {
+            $contestant = Contestant::create([
+                'name' => 'Contestant ' . $i,
+                'description' => 'Description for Contestant ' . $i,
+                'cover_image' => null,
+                'video_link' => 'http://example.com/video' . $i,
+            ]);
+
+            // Manually create a random number of votes (between 1 and 20) for each contestant
+            for ($j = 1; $j <= rand(1, 20); $j++) {
+                Vote::create([
+                    'contestant_id' => $contestant->id,
+                    'voter_email' => 'voter' . $i . '_' . $j . '@example.com',
+                    'voted_at' => now(),
+                ]);
+            }
+        }
     }
 }
