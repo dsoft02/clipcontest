@@ -65,11 +65,11 @@
         </div>
         <!-- End::app-content -->
 
+    </div>
+
         <!-- Start::app-footer -->
         @include('partials._site_footer')
         <!-- End::app-footer -->
-
-    </div>
 
     <div class="scrollToTop">
         <span class="arrow"><i class="ri-arrow-up-s-fill fs-20"></i></span>
