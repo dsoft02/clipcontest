@@ -83,7 +83,7 @@
                                         @empty
                                             <tr>
                                                 <td colspan="4" class="text-center">
-                                                    <img src="{{ asset('assets/images/svgicons/note_taking.svg') }}" alt="" class="w-35"> <h5 class="mt-3 tx-18">No Record Found</h5>
+                                                    <img src="{{ asset('assets/images/svgicons/note_taking.svg') }}" alt="" class="w-35 mx-auto"> <h5 class="mt-3 tx-18">No Record Found</h5>
                                                 </td>
                                             </tr>
                                         @endforelse
