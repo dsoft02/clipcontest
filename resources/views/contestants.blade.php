@@ -181,11 +181,7 @@
                     modalElement.querySelector('#contestantName').innerText = data.name;
                     modalElement.querySelector('#videoDescription').innerText = data.description;
                     modalElement.querySelector('#totalVotes').innerText = data.totalVotes;
-
-                    // Update the video URL for YouTube embedding
-                    var videoUrl = data.videoUrl;
-                    var embedUrl = videoUrl.replace("watch?v=", "embed/");
-                    modalElement.querySelector('#videoPlayer').src = embedUrl;
+                    modalElement.querySelector('#videoPlayer').src =  data.videoUrl;
 
                     // Generate shareable links for social media
                     const shareText = `Vote for ${data.name} in the contest!`;

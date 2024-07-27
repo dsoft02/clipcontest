@@ -126,7 +126,7 @@ class ContestantController extends Controller
             'name' => $contestant->name,
             'description' => $contestant->description,
             'totalVotes' => $contestant->getTotalVotesCount(),
-            'videoUrl' => $contestant->video_link,
+            'videoUrl' => convertYoutubeLink($contestant->video_link),
             'coverImageUrl' => $contestant->cover_image_url,
             'shareableLink' => route('contestants', ['contestantId' => $contestant->id]),
         ];
@@ -142,7 +142,7 @@ class ContestantController extends Controller
                 'name' => $contestant->name,
                 'description' => $contestant->description,
                 'totalVotes' => $contestant->getTotalVotesCount(),
-                'videoUrl' => $contestant->video_link,
+                'videoUrl' => convertYoutubeLink($contestant->video_link),
                 'coverImageUrl' => $contestant->cover_image_url,
                 'shareableLink' => route('contestants', ['contestantId' => $contestant->id]),
                 // Add any other properties you need

@@ -4,7 +4,6 @@ use App\Lib\ClientInfo;
 use App\Models\Contestant;
 use App\Models\Setting;
 
-
 function slug($string)
 {
     return Str::slug($string);
@@ -34,7 +33,6 @@ function getnumber($length = 8)
 
 use Carbon\Carbon;
 use Illuminate\Support\Str;
-
 
 /**
  * Retrieve the site logo URL based on the type.
@@ -120,6 +118,22 @@ if (!function_exists('checkAndDisableVoting')) {
         if ($enableVoting && Carbon::parse($votingEndDate)->isPast()) {
             Setting::updateOrCreate(['key' => 'enable_voting'], ['value' => 0]);
         }
+    }
+}
+
+if (!function_exists('convertYoutubeLink')) {
+    function convertYoutubeLink($url)
+    {
+        // Check if the URL is from YouTube
+        if (preg_match('/youtu\.be\/([^\?&]+)/', $url, $matches) ||
+            preg_match('/youtube\.com\/watch\?v=([^\?&]+)/', $url, $matches)) {
+            $videoId = $matches[1];
+            $queryParams = parse_url($url, PHP_URL_QUERY);
+            return "https://www.youtube.com/embed/{$videoId}" . ($queryParams ? "?{$queryParams}" : '');
+        }
+
+        // Return the original URL if it's not a YouTube link
+        return $url;
     }
 }
 function removeElement($array, $value)
