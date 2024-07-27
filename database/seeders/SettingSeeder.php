@@ -20,6 +20,8 @@ class SettingSeeder extends Seeder
             ['key' => 'light_icon', 'value' => ''],
             ['key' => 'dark_icon', 'value' => ''],
             ['key' => 'favicon', 'value' => ''],
+            ['key' => 'enable_voting', 'value' => '0'],
+            ['key' => 'declare_winner', 'value' => '0'],
         ];
 
         foreach ($settings as $setting) {
