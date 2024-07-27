@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Contestant;
 use App\Models\Vote;
-use Illuminate\Support\Str;
 
 class ContestantSeeder extends Seeder
 {
@@ -28,6 +27,8 @@ class ContestantSeeder extends Seeder
                 Vote::create([
                     'contestant_id' => $contestant->id,
                     'email' => 'voter' . $i . '_' . $j . '@example.com',
+                    'ip_address' => '192.168.1.' . rand(1, 255),
+                    'created_at' => now(),
                 ]);
             }
         }
