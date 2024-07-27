@@ -62,7 +62,7 @@
                                     <label class="form-label">Voting End Date</label>
                                     <div class="input-group">
                                         <div class="input-group-text text-muted"> <i class="ri-calendar-line"></i> </div>
-                                        <input type="text" class="form-control" id="datetime" name="voting_enddate" placeholder="Choose voting en date and time" value="{{ getSettings()->voting_enddate }}" required>
+                                        <input type="text" class="form-control" id="datetime" name="voting_enddate" placeholder="Choose voting en date and time" value="{{ getSetting('voting_enddate','') }}" required>
                                     </div>
                                 </div>
                             </div>
