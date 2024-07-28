@@ -244,3 +244,8 @@
   width: 3rem !important;
   height: 1.5rem !important;
 }
+
+.main-banner-container {
+  padding: 1rem;
+  margin-top: 3rem;
+}
