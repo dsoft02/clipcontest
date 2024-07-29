@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Vote;
-use Illuminate\Http\Request;
 use App\Lib\ClientInfo;
+use App\Models\Vote;
+use App\Rules\AllowedEmailDomain;
+use Illuminate\Http\Request;
 
 class VoteController extends Controller
 {
@@ -22,10 +23,10 @@ class VoteController extends Controller
 
     public function store(Request $request)
     {
-        //Validate the request
+        // Validate the request
         $request->validate([
             'contestant_id' => 'required|exists:contestants,id',
-            'email' => 'required|email',
+            'email' => ['required', 'email', new AllowedEmailDomain],
         ]);
 
         // // Get the IP address of the user
