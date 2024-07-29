@@ -73,9 +73,9 @@
                         <p class="mb-0 text-primary">Total Votes: <span id="totalVotes" class="fw-bolder">0 Votes</span></p>
                     </div>
                 </div>
-                <div class="modal-footer justify-content-center pt-0 pb-0">
+                <div class="modal-footer justify-content-center">
                     @if (isVotingEnabled())
-                        <button id="voteButton" class="btn btn-primary btn-wave" onclick="showVoteModal()">
+                        <button id="voteButton" class="btn btn-lg btn-primary btn-wave form-control" onclick="showVoteModal()">
                             <i class="fa fa-vote-yea"></i> Vote
                         </button>
                     @endif

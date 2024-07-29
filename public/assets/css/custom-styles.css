@@ -279,3 +279,6 @@
     justify-content: center;
     width: 100%;
 }
+.video-container iframe{
+  width:100%;
+}
