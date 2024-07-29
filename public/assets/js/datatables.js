@@ -1,7 +1,7 @@
 $(function (e) {
     // responsive datatable
     $('#responsiveDataTable').DataTable({
-        responsive: false,
+        responsive: true,
         language: {
             searchPlaceholder: 'Search Participants...',
             sSearch: '',

@@ -37,8 +37,8 @@
                                     <thead class="table-primary">
                                         <tr>
                                             <th>Position</th>
-                                            <th>Participant Details</th>
-                                            <th>Votes</th>
+                                            <th data-priority="1">Participant Details</th>
+                                            <th data-priority="2">Votes</th>
                                         </tr>
                                     </thead>
                                     <tbody class="table-group-divider">
