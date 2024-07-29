@@ -20,7 +20,7 @@
                         <div class="card custom-card">
                             <a href="javascript:void(0);" onclick="fetchContestantDetails({{ $contestant->id }})"
                                 class="position-relative">
-                                <img src="{{ $contestant->cover_image_url }}" class="card-img-top video-cover"
+                                <img src="{{ $contestant->cover_image_url }}" class="card-img-top video-cover object-fit-cover"
                                     alt="Video Cover">
                                 <div class="play-button-overlay">
                                     <i class="ri-play-fill"></i>
