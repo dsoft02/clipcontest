@@ -15187,8 +15187,8 @@ code[class*=language-] {
 }
 @media (min-width: 992px) and (min-width: 992px) {
   [data-nav-layout=horizontal] .horizontal-logo .header-logo img {
-    height: 2rem;
-    line-height: 2rem;
+    height: 3rem;
+    line-height: 3rem;
   }
   [data-nav-layout=horizontal] .horizontal-logo .header-logo .desktop-logo {
     display: block;
@@ -16379,7 +16379,7 @@ code[class*=language-] {
   white-space: nowrap;
   color: var(--menu-prime-color);
   position: relative;
-  font-size: 0.85rem;
+  font-size: 1.2rem;
   line-height: 1;
   vertical-align: middle;
 }

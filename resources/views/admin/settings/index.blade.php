@@ -85,7 +85,7 @@
                                     <input class="form-control form-control-sm" id="dark_icon" name="dark_icon"
                                         type="file" accept="image/jpeg,image/png">
                                     <div class="text-wrap mt-1 bg-gray-100">
-                                        <div><img alt="Responsive image" class="img-fluid ht-45" id="imgdarkicon"
+                                        <div><img alt="Responsive image" class="img-fluid" style="max-height:80px;" id="imgdarkicon"
                                                 src="{{ siteLogo('dark_icon') }}"></div>
                                     </div>
                                 </div>
@@ -94,7 +94,7 @@
                                     <input class="form-control form-control-sm" id="light_icon" name="light_icon"
                                         type="file" accept="image/jpeg,image/png">
                                     <div class="text-wrap mt-1 bg-gray-100">
-                                        <div><img alt="Responsive image" class="img-fluid ht-45" id="imglighticon"
+                                        <div><img alt="Responsive image" class="img-fluid" style="max-height:80px;" id="imglighticon"
                                                 src="{{ siteLogo('light_icon') }}"></div>
                                     </div>
                                 </div>
@@ -103,7 +103,7 @@
                                     <input class="form-control form-control-sm" id="dark_logo" name="dark_logo"
                                         type="file" accept="image/jpeg,image/png">
                                     <div class="text-wrap mt-1 bg-gray-100">
-                                        <div><img alt="Responsive image" class="img-fluid ht-45" id="imgdarklogo"
+                                        <div><img alt="Responsive image" class="img-fluid" style="max-height:80px;" id="imgdarklogo"
                                                 src="{{ siteLogo('dark_logo') }}"></div>
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@
                                     <input class="form-control form-control-sm" id="light_logo" name="light_logo"
                                         type="file" accept="image/jpeg,image/png">
                                     <div class="text-wrap mt-1 bg-gray-100">
-                                        <div><img alt="Responsive image" class="img-fluid ht-45" id="imglightlogo"
+                                        <div><img alt="Responsive image" class="img-fluid" style="max-height:80px;" id="imglightlogo"
                                                 src="{{ siteLogo('light_logo') }}"></div>
                                     </div>
                                 </div>

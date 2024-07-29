@@ -16,7 +16,7 @@
             @include('components.toastr')
             <div class="row g-2">
                 @foreach ($contestants as $contestant)
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="card custom-card">
                             <a href="javascript:void(0);" onclick="fetchContestantDetails({{ $contestant->id }})"
                                 class="position-relative">

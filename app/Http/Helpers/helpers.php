@@ -64,7 +64,7 @@ function siteFavicon()
 function siteName($pageName = null)
 {
     // Retrieve the site name from the settings or use the default Laravel app name
-    $siteName = Setting::getValue('site_name', config('app.name', 'Clipcontest'));
+    $siteName = Setting::getValue('site_name', config('app.name', 'Finding Her'));
 
     return $pageName ? "{$siteName} - {$pageName}" : $siteName;
 }
