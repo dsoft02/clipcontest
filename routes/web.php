@@ -10,14 +10,13 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/leaderboard', [HomeController::class, 'leaderboard'])->name('leaderboard');
-Route::get('/winner', [HomeController::class, 'winner'])->name('winner');
-
-
+// Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'contestants'])->name('home');
 Route::get('/contestants', [HomeController::class, 'contestants'])->name('contestants');
 Route::get('/contestants/{id}', [HomeController::class, 'contestants'])->name('contestant.show');
 Route::post('/vote', [VoteController::class, 'store'])->name('vote.store');
+Route::get('/leaderboard', [HomeController::class, 'leaderboard'])->name('leaderboard');
+Route::get('/winner', [HomeController::class, 'winner'])->name('winner');
 
 Route::get('/ajax/contestants/{id}', [AdminContestantController::class, 'getContestant'])->name('contestant.ajax.show');
 Route::get('/ajax/contestants', [AdminContestantController::class, 'getContestants'])->name('contestant.ajax.index');

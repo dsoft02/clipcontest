@@ -16,13 +16,18 @@ class HomeController extends Controller
     public function index()
     {
         checkAndDisableVoting();
-        return view('home', ['winner' => $this->winner]);
+
+        $leaderboard = Contestant::withCount('votes')
+        ->orderBy('votes_count', 'desc')
+        ->get();
+
+        return view('home', compact('leaderboard'))->with('winner', $this->winner);
     }
 
     public function winner()
     {
         if (!isDeclareWinnerEnabled()) {
-            return redirect()->route('home');
+            return redirect()->route('constestant');
         }
         return view('winner', ['winner' => $this->winner]);
     }
@@ -42,6 +47,10 @@ class HomeController extends Controller
         checkAndDisableVoting();
         $contestants = Contestant::all();
 
-        return view('contestants', compact('contestants', 'id'))->with('winner', $this->winner);
+        $leaderboard = Contestant::withCount('votes')
+        ->orderBy('votes_count', 'desc')
+        ->get();
+
+        return view('contestants', compact('contestants', 'leaderboard','id'))->with('winner', $this->winner);
     }
 }

@@ -1,5 +1,5 @@
 <!-- Start of Selection -->
-<aside class="app-sidebar sticky {{ request()->routeIs('home') ? '' : 'sticky-pin no-home' }}" id="sidebar">
+<aside class="app-sidebar sticky sticky-pin no-home" id="sidebar">
 
     <div class="container p-0">
         <!-- Start::main-sidebar -->
@@ -20,12 +20,12 @@
                         <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
                     </svg></div>
                 <ul class="main-menu">
-                    <!-- Start::slide -->
+                    {{--  <!-- Start::slide -->
                     <li class="slide">
                         <a class="side-menu__item" href="{{ route('home') }}">
                             <span class="side-menu__label">Home</span>
                         </a>
-                    </li>
+                    </li>  --}}
                     <!-- End::slide -->
                     <!-- Start::slide -->
                     <li class="slide">

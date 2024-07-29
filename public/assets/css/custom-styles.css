@@ -249,3 +249,33 @@
   padding: 1rem;
   margin-top: 3rem;
 }
+
+
+#videoPlayer {
+  width: 100%;
+}
+
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+#videoModal .modal-dialog {
+    max-width: 400px;
+}
+
+#videoModal .modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#videoModal .modal-footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}

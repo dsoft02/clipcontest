@@ -69,16 +69,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group mb-3">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <label class="form-label" for="description">Description</label>
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <textarea class="form-control" name="description" id="description" rows="4" placeholder="">{{ old('description', $contestant->description) }}</textarea>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

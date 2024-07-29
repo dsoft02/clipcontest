@@ -37,7 +37,6 @@
                                     <thead class="table-primary">
                                         <tr>
                                             <th style="width: 30%;">Participant Details</th>
-                                            <th style="width: 40%;">Description</th>
                                             <th style="width: 15%;">Created</th>
                                             <th style="width: 15%;">Action</th>
                                         </tr>
@@ -60,9 +59,6 @@
                                                             </p>
                                                         </div>
                                                     </div>
-                                                </td>
-                                                <td>
-                                                    {{ $contestant->description }}
                                                 </td>
                                                 <td>
                                                     {{ $contestant->created_at->format('F j, Y, g:i a') }}

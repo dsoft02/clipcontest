@@ -25,7 +25,7 @@
                                     <thead class="table-primary">
                                         <tr>
                                             <th>Position</th>
-                                            <th data-priority="1">Participant Details</th>
+                                            <th data-priority="1">Participant Name</th>
                                             <th data-priority="2">Votes</th>
                                         </tr>
                                     </thead>
@@ -40,27 +40,7 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <div class="d-flex align-items-center w-100">
-                                                        <div class="me-2">
-                                                            <span class="avatar rounded">
-                                                                <a href="javascript:void(0);"
-                                                                    onclick="fetchContestantDetails('{{ $contestant->id }}')"
-                                                                    class="position-relative">
-                                                                    <img src="{{ $contestant->cover_image_url }}"
-                                                                        class="object-fit-cover">
-                                                                    <div
-                                                                        class="play-button-overlay play-button-overlay-sm">
-                                                                        <i class="ri-play-fill"></i>
-                                                                    </div>
-                                                                </a>
-                                                            </span>
-                                                        </div>
-                                                        <div class="">
-                                                            <div class="fs-15 fw-semibold">{{ $contestant->name }}</div>
-                                                            <p class="mb-0 text-muted op-7 fs-12">Description
-                                                                {{ strLimit($contestant->description) }}</p>
-                                                        </div>
-                                                    </div>
+                                                    <div class="fs-15 fw-semibold">{{ $contestant->name }}</div>
                                                 </td>
                                                 <td>
                                                     <h5 class="fw-bold">{{ count($contestant->votes) }}</h5>
