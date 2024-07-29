@@ -69,9 +69,13 @@ function siteName($pageName = null)
     return $pageName ? "{$siteName} - {$pageName}" : $siteName;
 }
 
-function getDefaultDomains(){
-    return 'gmail.com,yahoo.com,outlook.com,hotmail.com,icloud.com';
+if (!function_exists('getDefaultDomains')) {
+    function getDefaultDomains()
+    {
+        return 'gmail.com,yahoo.com,outlook.com,hotmail.com,icloud.com';
+    }
 }
+
 
 /**
  * Retrieve the settings object.
