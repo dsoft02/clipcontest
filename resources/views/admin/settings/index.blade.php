@@ -83,7 +83,7 @@
                                     <label class="form-label">WhiteList Email Domains</label>
                                     <input name="whitelist_domains" class="form-control" placeholder="WhiteList Email Domains"
                                         type="text" value="{{ getSetting('whitelist_domains',getDefaultDomains()) }}" required>
-                                    <small class="text-warning"><em>Enter email domains to allowed for voting separating each by comma</em></small>
+                                    <small class="text-danger"><em>Enter email domains to allowed for voting separating each by comma</em></small>
                                 </div>
                             </div>
                             <div class="row row-xs mb-4 mt-3">
