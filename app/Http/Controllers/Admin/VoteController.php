@@ -11,8 +11,8 @@ class VoteController extends Controller
 {
     public function index()
     {
-        // Fetch the voting history
-        $votes = Vote::with('contestant')->get();
+        // Fetch the voting history sorted by date with the latest on top
+        $votes = Vote::with('contestant')->orderBy('created_at', 'desc')->get();
 
         // Pass the voting history to the view
         return view('admin.voting.index', compact('votes'));
