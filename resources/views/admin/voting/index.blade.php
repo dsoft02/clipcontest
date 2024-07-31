@@ -14,6 +14,14 @@
                     </ol>
                 </nav>
             </div>
+            <div class="d-flex my-xl-auto right-content align-items-center">
+                <div class="pe-1 mb-xl-0">
+                    <form method="POST" action="{{ route('votes.reset') }}">
+                        @csrf
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to reset all votes? This action cannot be undone.');">Reset All Votes</button>
+                    </form>
+                </div>
+            </div>
         </div>
         <!-- Page Header Close -->
 
@@ -27,6 +35,8 @@
                             </div>
                         </div>
                         <div class="card-body">
+                            @include('components.flash-message')
+                            @include('components.toastr')
                             <div class="table-responsive">
                                 <table id="exportDataTable" class="table table-bordered table-vcenter text-nowrap w-100">
                                     <thead class="table-primary">

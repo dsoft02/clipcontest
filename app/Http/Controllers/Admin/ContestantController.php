@@ -1,9 +1,10 @@
 <?php
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Contestant;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class ContestantController extends Controller
@@ -167,4 +168,13 @@ class ContestantController extends Controller
 
         return response()->json($contestants);
     }
+
+    public function resetVotes(Request $request)
+    {
+        // Reset votes for all contestants
+        DB::table('votes')->delete();
+
+        return redirect()->route('votes.index')->with('success', 'All votes have been reset!');
+    }
+
 }

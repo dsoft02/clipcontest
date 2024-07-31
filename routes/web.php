@@ -33,6 +33,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin/contestants/{id}/edit', [AdminContestantController::class, 'edit'])->name('contestant.edit');
     Route::put('/admin/contestants/{id}', [AdminContestantController::class, 'update'])->name('contestant.update');
     Route::delete('/admin/contestants/{id}', [AdminContestantController::class, 'destroy'])->name('contestant.destsroy');
+    Route::post('admin/reset-votes', [AdminContestantController::class, 'resetVotes'])->name('votes.reset');
 
     Route::get('/admin/votes', [AdminVoteController::class, 'index'])->name('votes.index');
 
