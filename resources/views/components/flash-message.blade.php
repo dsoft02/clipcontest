@@ -28,7 +28,7 @@
             <div class="col-lg-12">
                 <div class="card border-0 mb-4 bg-danger-transparent alert p-0 alert-danger">
                     <div class="card-header py-2 d-flex align-items-center text-danger fw-bold">
-                        <i class="me-2 far fa-times-circle"></i> <strong>{{ ucfirst($bagName) }} Errors:</strong>
+                        <i class="me-2 far fa-times-circle"></i> <strong>Errors:</strong>
                         <button type="button" class="btn-close ms-auto p-0" data-bs-dismiss="alert" aria-label="Close">
                             <i class="bi bi-x"></i>
                         </button>

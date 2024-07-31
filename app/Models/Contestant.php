@@ -12,7 +12,7 @@ class Contestant extends Model
     use HasFactory;
 
     protected $fillable = [
-        'contest_id', 'name', 'description', 'cover_image', 'video_link'
+        'contest_id', 'name', 'description', 'cover_image', 'video_link','video_file'
     ];
 
     // Relationship with votes

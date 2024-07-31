@@ -34,17 +34,20 @@ class ContestantController extends Controller
         $request->validate([
             'name' => 'required|string|max:255|unique:contestants,name',
             'description' => 'nullable|string',
-            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'video_link' => 'required|url|unique:contestants,video_link',
+            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480',
+            'video_link' => 'nullable|url',
+            'video_file' => 'nullable|mimes:mp4,mov,ogg,qt|max:50000',
         ]);
 
         $coverImagePath = $request->file('cover_image') ? $request->file('cover_image')->store('cover_images', 'public') : null;
+        $videoFilePath = $request->file('video_file') ? $request->file('video_file')->store('videos', 'public') : null;
 
         Contestant::create([
             'name' => $request->name,
             'description' => $request->description,
             'cover_image' => $coverImagePath,
             'video_link' => $request->video_link,
+            'video_file' => $videoFilePath,
         ]);
         return redirect()->route('contestants.index')->with('success', 'Contestant created successfully!');
     }
@@ -78,7 +81,8 @@ class ContestantController extends Controller
             'name' => 'required|string|max:255|unique:contestants,name,' . $contestant->id,
             'description' => 'nullable|string',
             'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'video_link' => 'required|url|unique:contestants,video_link,' . $contestant->id,
+            'video_link' => 'nullable|url',
+            'video_file' => 'nullable|mimes:mp4,mov,ogg,qt|max:50000',
         ]);
 
         if ($request->hasFile('cover_image')) {
@@ -89,11 +93,20 @@ class ContestantController extends Controller
             $contestant->cover_image = $request->file('cover_image')->store('cover_images', 'public');
         }
 
+        if ($request->hasFile('video_file')) {
+            // Delete the old video file if a new one is uploaded
+            if ($contestant->video_file) {
+                Storage::disk('public')->delete($contestant->video_file);
+            }
+            $contestant->video_file = $request->file('video_file')->store('videos', 'public');
+        }
+
         $contestant->update([
             'name' => $request->name,
             'description' => $request->description,
             'cover_image' => $contestant->cover_image ?? $request->cover_image,
             'video_link' => $request->video_link,
+            'video_file' => $contestant->video_file ?? $request->video_file,
         ]);
         return redirect()->route('contestants.index')->with('success', 'Contestant updated successfully!');
     }
@@ -108,7 +121,11 @@ class ContestantController extends Controller
         if ($contestant->cover_image) {
             Storage::disk('public')->delete($contestant->cover_image);
         }
+        if ($contestant->video_file) {
+            Storage::disk('public')->delete($contestant->video_file);
+        }
         $contestant->delete();
+
 
         return redirect()->route('contestants.index')->with('success', 'Contestant deleted successfully!');
     }
@@ -126,8 +143,8 @@ class ContestantController extends Controller
             'name' => $contestant->name,
             'description' => $contestant->description,
             'totalVotes' => $contestant->getTotalVotesCount(),
-            'videoUrl' => convertYoutubeLink($contestant->video_link),
-            'coverImageUrl' => $contestant->cover_image_url,
+            'videoUrl' => $contestant->video_file ? Storage::url($contestant->video_file) : convertYoutubeLink($contestant->video_link),
+            'coverImageUrl' => $contestant->cover_image ? Storage::url($contestant->cover_image) : null,
             'shareableLink' => route('contestants', ['contestantId' => $contestant->id]),
         ];
 
@@ -142,10 +159,9 @@ class ContestantController extends Controller
                 'name' => $contestant->name,
                 'description' => $contestant->description,
                 'totalVotes' => $contestant->getTotalVotesCount(),
-                'videoUrl' => convertYoutubeLink($contestant->video_link),
-                'coverImageUrl' => $contestant->cover_image_url,
+                'videoUrl' => $contestant->video_file ? Storage::url($contestant->video_file) : convertYoutubeLink($contestant->video_link),
+                'coverImageUrl' => $contestant->cover_image ? Storage::url($contestant->cover_image) : null,
                 'shareableLink' => route('contestants', ['contestantId' => $contestant->id]),
-                // Add any other properties you need
             ];
         });
 

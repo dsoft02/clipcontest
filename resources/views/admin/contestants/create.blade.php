@@ -40,6 +40,8 @@
                             <div class="row">
                                 <div class="col-md-8">
                                     <x-alert :messages="$errors->all()" />
+                                    @include('components.flash-message')
+                                    @include('components.toastr')
                                     <div class="form-group mb-3">
                                         <div class="row">
                                             <div class="col-md-3">
@@ -58,7 +60,18 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <input type="text" class="form-control" name="video_link"
-                                                    id="video_link" placeholder="Video Link" value="" required>
+                                                    id="video_link" placeholder="Video Link" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label class="form-label" for="video_file">Video File</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input type="file" name="video_file" id="video_file"
+                                                    class="form-control">
                                             </div>
                                         </div>
                                     </div>

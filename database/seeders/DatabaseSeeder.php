@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             SettingSeeder::class,
-            ContestantSeeder::class,
+            //ContestantSeeder::class,
         ]);
     }
 }

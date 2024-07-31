@@ -39,6 +39,8 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <x-alert :messages="$errors->all()" />
+                                        @include('components.flash-message')
+                                        @include('components.toastr')
                                         <div class="form-group mb-3">
                                             <div class="row">
                                                 <div class="col-md-3">

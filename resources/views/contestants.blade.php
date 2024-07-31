@@ -153,11 +153,9 @@
         }
 
         document.addEventListener("DOMContentLoaded", function() {
-            document.addEventListener("DOMContentLoaded", function() {
-                $('#videoModal').on('hide.bs.modal', function() {
-                    var iframe = document.getElementById('videoPlayer');
-                    iframe.src = "";
-                });
+            $('#videoModal').on('hidden.bs.modal', function() {
+                var iframe = document.getElementById('videoPlayer');
+                iframe.src = "";
             });
 
             @if ($id)

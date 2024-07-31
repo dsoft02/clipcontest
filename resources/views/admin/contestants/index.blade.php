@@ -32,6 +32,8 @@
                             </div>
                         </div>
                         <div class="card-body">
+                            @include('components.flash-message')
+                            @include('components.toastr')
                             <div class="table-responsive">
                                 <table id="exportDataTable" class="table table-bordered table-vcenter w-100">
                                     <thead class="table-primary">

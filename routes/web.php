@@ -29,7 +29,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin/contestants', [AdminContestantController::class,'index'])->name('contestants.index');
     Route::get('/admin/contestants/create', [AdminContestantController::class,'create'])->name('contestant.create');
     Route::post('/admin/contestants/store', [AdminContestantController::class,'store'])->name('contestant.store');
-    Route::get('/admin/contestants/{id}', [AdminContestantController::class, 'show'])->name('contestant.show');
     Route::get('/admin/contestants/{id}/edit', [AdminContestantController::class, 'edit'])->name('contestant.edit');
     Route::put('/admin/contestants/{id}', [AdminContestantController::class, 'update'])->name('contestant.update');
     Route::delete('/admin/contestants/{id}', [AdminContestantController::class, 'destroy'])->name('contestant.destsroy');
