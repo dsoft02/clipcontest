@@ -143,8 +143,8 @@ class ContestantController extends Controller
             'name' => $contestant->name,
             'description' => $contestant->description,
             'totalVotes' => $contestant->getTotalVotesCount(),
-            'videoUrl' => $contestant->video_file ? Storage::url($contestant->video_file) : convertYoutubeLink($contestant->video_link),
-            'coverImageUrl' => $contestant->cover_image ? Storage::url($contestant->cover_image) : null,
+            'videoUrl' => $contestant->video_file ? url('storage/' . $contestant->video_file) : convertYoutubeLink($contestant->video_link),
+            'coverImageUrl' => $contestant->cover_image ? url('storage/' . $contestant->cover_image) : null,
             'shareableLink' => route('contestants', ['contestantId' => $contestant->id]),
         ];
 
