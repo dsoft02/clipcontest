@@ -53,7 +53,7 @@
                                             <tr>
                                                 <td>{{ $key + 1 }}</td>
                                                 <td>{{ $vote->email }}</td>
-                                                <td>{{ $vote->ip }}</td>
+                                                <td>{{ $vote->ip_address }}</td>
                                                 <td>{{ $vote->contestant->name }}</td>
                                                 <td>{{ $vote->created_at->format('d M Y H:i:s') }}</td>
                                             </tr>
