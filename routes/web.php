@@ -18,6 +18,7 @@ Route::post('/vote', [VoteController::class, 'store'])->name('vote.store');
 Route::get('/leaderboard', [HomeController::class, 'leaderboard'])->name('leaderboard');
 Route::get('/winner', [HomeController::class, 'winner'])->name('winner');
 
+
 Route::get('/ajax/contestants/{id}', [AdminContestantController::class, 'getContestant'])->name('contestant.ajax.show');
 Route::get('/ajax/contestants', [AdminContestantController::class, 'getContestants'])->name('contestant.ajax.index');
 

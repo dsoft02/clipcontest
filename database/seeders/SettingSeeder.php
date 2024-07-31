@@ -14,7 +14,7 @@ class SettingSeeder extends Seeder
     public function run(): void
     {
         $settings = [
-            ['key' => 'site_name', 'value' => 'ClipContest'],
+            ['key' => 'site_name', 'value' => 'Finding Her'],
             ['key' => 'light_logo', 'value' => ''],
             ['key' => 'dark_logo', 'value' => ''],
             ['key' => 'light_icon', 'value' => ''],
