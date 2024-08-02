@@ -63,7 +63,7 @@
                 <div class="modal-body">
                     <div class="video-container">
                         <iframe id="videoPlayer" width="315" height="560"
-                            src="https://www.youtube.com/embed/EsFVsRrhinc?si=fCasVadyOpv5xrZj"
+                            src=""
                             title="video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen></iframe>
