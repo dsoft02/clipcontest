@@ -32,6 +32,7 @@ class ContestantSeeder extends Seeder
                 'description' => 'Description for Contestant ' . $i,
                 'cover_image' => null,
                 'video_link' => null,
+                'video_file' => 'videos/HZpFzgH80Pi4eOx3zJjvTGsuK1KqHCSQrVJ4fIE0_'. $i .'.mp4',
             ]);
 
             // Manually create a random number of votes (between 1 and 20) for each contestant
