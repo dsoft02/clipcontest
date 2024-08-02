@@ -30,7 +30,7 @@ class ContestantSeeder extends Seeder
             $contestant = Contestant::create([
                 'name' => 'Contestant ' . $i,
                 'description' => 'Description for Contestant ' . $i,
-                'cover_image' => 'cover_images/k7vJof5O2832eVSwF6PpSSQENaK6HVZQ8z1rBIoA'. $i .'.png',
+                'cover_image' => 'cover_images/k7vJof5O2832eVSwF6PpSSQENaK6HVZQ8z1rBIoA_'. $i .'.png',
                 'video_link' => null,
                 'video_file' => 'videos/HZpFzgH80Pi4eOx3zJjvTGsuK1KqHCSQrVJ4fIE0_'. $i .'.mp4',
             ]);
