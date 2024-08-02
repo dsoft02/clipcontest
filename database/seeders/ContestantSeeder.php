@@ -31,18 +31,18 @@ class ContestantSeeder extends Seeder
                 'name' => 'Contestant ' . $i,
                 'description' => 'Description for Contestant ' . $i,
                 'cover_image' => null,
-                'video_link' => 'http://example.com/video' . $i,
+                'video_link' => null,
             ]);
 
             // Manually create a random number of votes (between 1 and 20) for each contestant
-            for ($j = 1; $j <= rand(1, 20); $j++) {
-                Vote::create([
-                    'contestant_id' => $contestant->id,
-                    'email' => 'voter' . $i . '_' . $j . '@example.com',
-                    'ip_address' => generateUniqueIp($usedIps),
-                    'created_at' => now(),
-                ]);
-            }
+            // for ($j = 1; $j <= rand(1, 20); $j++) {
+            //     Vote::create([
+            //         'contestant_id' => $contestant->id,
+            //         'email' => 'voter' . $i . '_' . $j . '@example.com',
+            //         'ip_address' => generateUniqueIp($usedIps),
+            //         'created_at' => now(),
+            //     ]);
+            // }
         }
     }
 }
