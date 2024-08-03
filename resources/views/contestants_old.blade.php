@@ -18,17 +18,10 @@
                 @foreach ($contestants as $contestant)
                     <div class="col-md-4">
                         <div class="card custom-card">
-                            {{--  <a href="javascript:void(0);" onclick="fetchContestantDetails({{ $contestant->id }})"
+                            <a href="javascript:void(0);" onclick="fetchContestantDetails({{ $contestant->id }})"
                                 class="position-relative">
                                 <img src="{{ $contestant->cover_image_url }}" class="card-img-top video-cover object-fit-cover"
                                     alt="Video Cover">
-                                <div class="play-button-overlay">
-                                    <i class="ri-play-fill"></i>
-                                </div>
-                            </a>  --}}
-                            <a class="position-relative" data-caption="<h2>An example title.</h2><h3>An example description.</h3>" data-poster="{{ $contestant->cover_image_url }}" data-fslightbox="gallery" href="{{ $contestant->video_url }}">
-                                <img src="{{ $contestant->cover_image_url }}" class="card-img-top video-cover object-fit-cover"
-                                alt="Video Cover">
                                 <div class="play-button-overlay">
                                     <i class="ri-play-fill"></i>
                                 </div>
@@ -57,6 +50,7 @@
             </div>
         </div>
     </section>
+
     <!-- Modal for video and details -->
     <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true"
         data-bs-backdrop="static" data-bs-keyboard="false">
@@ -123,9 +117,6 @@
     @if (isset($winner) && isDeclareWinnerEnabled())
         <x-winner-modal :winner="$winner" />
     @endif
-
-    @push('custom-js')
-        <script src="{{ asset('assets/js/fslightbox.js') }}"></script>
     <script>
         function clearVoteForm() {
             document.getElementById('voteForm').reset();
@@ -172,10 +163,5 @@
             @endif
 
         });
-
-
-        fsLightboxInstances['gallery'].props.exitFullscreenOnClose = true;
-
     </script>
-    @endpush
 </x-site-layout>

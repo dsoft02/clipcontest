@@ -31,6 +31,18 @@ class Contestant extends Model
         }
     }
 
+
+    public function getVideoUrlAttribute()
+    {
+        if ($this->video_file && Storage::disk('public')->exists($this->video_file)) {
+            return Storage::url($this->video_file);
+        }
+
+        return $this->video_link ? convertYoutubeLink($this->video_link) : null;
+    }
+
+
+
     // Method to get the total votes count
     public function getTotalVotesCount()
     {
