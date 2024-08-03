@@ -26,9 +26,15 @@
                                     <i class="ri-play-fill"></i>
                                 </div>
                             </a>  --}}
-                            <a class="position-relative" data-caption="<h2>An example title.</h2><h3>An example description.</h3>" data-poster="{{ $contestant->cover_image_url }}" data-fslightbox="gallery" href="{{ $contestant->video_url }}">
+                            {{--  <a class="position-relative" data-poster="{{ $contestant->cover_image_url }}" data-fslightbox="gallery" href="{{ $contestant->video_url }}">
                                 <img src="{{ $contestant->cover_image_url }}" class="card-img-top video-cover object-fit-cover"
                                 alt="Video Cover">
+                                <div class="play-button-overlay">
+                                    <i class="ri-play-fill"></i>
+                                </div>
+                            </a>  --}}
+                            <a class="position-relative glightbox" href="{{ $contestant->video_url }}">
+                                <img src="{{ $contestant->cover_image_url }}" class="card-img-top video-cover object-fit-cover" alt="Video Cover">
                                 <div class="play-button-overlay">
                                     <i class="ri-play-fill"></i>
                                 </div>
@@ -123,59 +129,64 @@
     @if (isset($winner) && isDeclareWinnerEnabled())
         <x-winner-modal :winner="$winner" />
     @endif
-
+    @push('custom-css')
+        <!-- GLightbox CSS -->
+        <link rel="stylesheet" href="{{ asset('assets/libs/glightbox/css/glightbox.min.css') }}">
+    @endpush
     @push('custom-js')
         <script src="{{ asset('assets/js/fslightbox.js') }}"></script>
-    <script>
-        function clearVoteForm() {
-            document.getElementById('voteForm').reset();
-        }
+        <script src="{{ asset('assets/libs/glightbox/js/glightbox.min.js') }}"></script>
+        <script src="{{ asset('assets/js/gallery.js') }}"></script>
+        <script>
+            function clearVoteForm() {
+                document.getElementById('voteForm').reset();
+            }
 
-        function showVoteModal(contestantId) {
-            document.querySelector('#voteModal #contestantId').value = contestantId;
-            var voteModal = new bootstrap.Modal(document.getElementById('voteModal'));
-            voteModal.show();
-        }
+            function showVoteModal(contestantId) {
+                document.querySelector('#voteModal #contestantId').value = contestantId;
+                var voteModal = new bootstrap.Modal(document.getElementById('voteModal'));
+                voteModal.show();
+            }
 
-        function fetchContestantDetails(contestantId) {
-            $.ajax({
-                url: '/ajax/contestants/' + contestantId,
-                method: 'GET',
-                success: function(data) {
-                    var videoModal = new bootstrap.Modal(document.getElementById('videoModal'));
-                    var modalElement = videoModal._element;
-                    modalElement.querySelector('#contestantName').innerText = data.name;
-                    modalElement.querySelector('#totalVotes').innerText = data.totalVotes;
-                    modalElement.querySelector('#videoPlayer').src =  data.videoUrl;
+            function fetchContestantDetails(contestantId) {
+                $.ajax({
+                    url: '/ajax/contestants/' + contestantId,
+                    method: 'GET',
+                    success: function(data) {
+                        var videoModal = new bootstrap.Modal(document.getElementById('videoModal'));
+                        var modalElement = videoModal._element;
+                        modalElement.querySelector('#contestantName').innerText = data.name;
+                        modalElement.querySelector('#totalVotes').innerText = data.totalVotes;
+                        modalElement.querySelector('#videoPlayer').src =  data.videoUrl;
 
-                    @if (isVotingEnabled())
-                        var voteButton = document.getElementById('voteButton');
-                        voteButton.setAttribute('onclick', 'showVoteModal(' + contestantId + ')');
-                    @endif
+                        @if (isVotingEnabled())
+                            var voteButton = document.getElementById('voteButton');
+                            voteButton.setAttribute('onclick', 'showVoteModal(' + contestantId + ')');
+                        @endif
 
-                    videoModal.show();
-                },
-                error: function() {
-                    alert('Error fetching contestant details.');
-                }
+                        videoModal.show();
+                    },
+                    error: function() {
+                        alert('Error fetching contestant details.');
+                    }
+                });
+            }
+
+            document.addEventListener("DOMContentLoaded", function() {
+                $('#videoModal').on('hidden.bs.modal', function() {
+                    var iframe = document.getElementById('videoPlayer');
+                    iframe.src = "";
+                });
+
+                @if ($id)
+                    fetchContestantDetails({{ $id }});
+                @endif
+
             });
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            $('#videoModal').on('hidden.bs.modal', function() {
-                var iframe = document.getElementById('videoPlayer');
-                iframe.src = "";
-            });
-
-            @if ($id)
-                fetchContestantDetails({{ $id }});
-            @endif
-
-        });
 
 
-        fsLightboxInstances['gallery'].props.exitFullscreenOnClose = true;
+            {{--  fsLightboxInstances['gallery'].props.exitFullscreenOnClose = true;  --}}
 
-    </script>
+        </script>
     @endpush
 </x-site-layout>
