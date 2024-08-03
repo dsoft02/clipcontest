@@ -26,19 +26,19 @@
                                     <i class="ri-play-fill"></i>
                                 </div>
                             </a>  --}}
-                            {{--  <a class="position-relative" data-poster="{{ $contestant->cover_image_url }}" data-fslightbox="gallery" href="{{ $contestant->video_url }}">
+                            <a class="position-relative" data-poster="{{ $contestant->cover_image_url }}" data-fslightbox="gallery" href="{{ $contestant->video_url }}">
                                 <img src="{{ $contestant->cover_image_url }}" class="card-img-top video-cover object-fit-cover"
                                 alt="Video Cover">
                                 <div class="play-button-overlay">
                                     <i class="ri-play-fill"></i>
                                 </div>
-                            </a>  --}}
-                            <a class="position-relative glightbox" href="{{ $contestant->video_url }}">
+                            </a>
+                            {{--  <a class="position-relative glightbox" href="{{ $contestant->video_url }}">
                                 <img src="{{ $contestant->cover_image_url }}" class="card-img-top video-cover object-fit-cover" alt="Video Cover">
                                 <div class="play-button-overlay">
                                     <i class="ri-play-fill"></i>
                                 </div>
-                            </a>
+                            </a>  --}}
                             <div class="card-body pb-1">
                                 <div class="d-flex flex-column justify-content-between" style="height: 100%;">
                                     <div>
@@ -136,7 +136,7 @@
     @push('custom-js')
         <script src="{{ asset('assets/js/fslightbox.js') }}"></script>
         <script src="{{ asset('assets/libs/glightbox/js/glightbox.min.js') }}"></script>
-        <script src="{{ asset('assets/js/gallery.js') }}"></script>
+        {{--  <script src="{{ asset('assets/js/gallery.js') }}"></script>  --}}
         <script>
             function clearVoteForm() {
                 document.getElementById('voteForm').reset();
@@ -185,7 +185,7 @@
             });
 
 
-            {{--  fsLightboxInstances['gallery'].props.exitFullscreenOnClose = true;  --}}
+            fsLightboxInstances['gallery'].props.exitFullscreenOnClose = true;
 
         </script>
     @endpush
