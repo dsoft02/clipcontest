@@ -51,6 +51,6 @@ class HomeController extends Controller
         ->orderBy('votes_count', 'desc')
         ->get();
 
-        return view('contestants', compact('contestants', 'leaderboard','id'))->with('winner', $this->winner);
+        return view('contestantslist', compact('contestants', 'leaderboard','id'))->with('winner', $this->winner);
     }
 }
